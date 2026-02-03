@@ -9,17 +9,17 @@ logs_creation
 #Configure Mongodb
 start_time
 rm -rf /etc/yum.repos.d/mongo.repo
-error_handler remove_existing_repo
+error_handler Remove_existing_repo
 cp $current_dir/mongo.repo /etc/yum.repos.d/mongo.repo
 error_handler Adding_Repo_File
 dnf install mongodb-org -y &>>$log
 error_handler Mongodb_Installation
 systemctl enable mongod &>>$log
-error_handler enabling_service
+error_handler Enabling_service
 systemctl start mongod &>>$log
-error_handler start_the_service
+error_handler Start_the_service
 sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf 
-error_handler binding_the_ip
+error_handler Binding_the_ip
 systemctl restart mongod &>>$log
-error_handler restarting_mongod_service
-end_time mongodb
+error_handler Restarting_mongod_service
+end_time Mongodb
