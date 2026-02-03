@@ -52,3 +52,17 @@ cd /app
 unzip /tmp/$1.zip
 cd /app 
 }
+
+system_user (){
+    id roboshop &>>$log
+    if [ $? -ne 0 ]; then
+     useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$log
+    else
+     echo -e "$blue User already exists. Skipping...... $reset"
+    fi
+}
+
+start_enable_service (){
+    systemctl enable $1 &>>$log
+    systemctl start $1
+}
