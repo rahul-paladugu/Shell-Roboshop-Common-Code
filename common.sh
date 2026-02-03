@@ -38,7 +38,8 @@ start_time () {
 }
 end_time (){
     end_time=$(date +%s)
-    echo -e "$yellow Catalogue configuration is completed. Time taken in $(($end_time - $start_time)) Seconds. $reset"
+    total=$(($end_time - $start_time))
+    echo -e "$yellow Catalogue configuration is completed. Time taken in$total Seconds. $reset"
 
 }
 download_code () {

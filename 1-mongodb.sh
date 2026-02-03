@@ -7,7 +7,8 @@ check_root_access
 #Creating logs directory
 logs_creation
 #Configure Mongodb
-
+rm -rf /etc/yum.repos.d/mongo.repo
+error_handler remove_existing_repo
 cp $current_dir/mongo.repo /etc/yum.repos.d/mongo.repo
 error_handler Adding_Repo_File
 dnf install mongodb-org -y &>>$log
