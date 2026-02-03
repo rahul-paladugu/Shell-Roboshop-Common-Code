@@ -34,7 +34,7 @@ logs_creation () {
 }
 start_time () {
     start_time=$(date +%s)
-    echo -e "${green}Started executing the script at $start_time. $reset"
+    echo -e "${yellow}Started executing the script.. $reset"
 }
 end_time (){
     end_time=$(date +%s)
