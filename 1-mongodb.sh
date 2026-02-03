@@ -7,6 +7,7 @@ check_root_access
 #Creating logs directory
 logs_creation
 #Configure Mongodb
+start_time
 rm -rf /etc/yum.repos.d/mongo.repo
 error_handler remove_existing_repo
 cp $current_dir/mongo.repo /etc/yum.repos.d/mongo.repo
