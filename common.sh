@@ -18,10 +18,10 @@ check_root_access () {
 #Validating errors for every task.
 error_handler () {
   if [ $? -ne 0 ]; then
-    echo -e "$red $1 is failed. Please review the logs. $reset"
+    echo -e "$1 is$red failed.$reset Please review the logs."
     exit 1
   else
-    echo -e "$1 is $green success. $reset"
+    echo -e "$1 is$green success. $reset"
   fi
 }
 
