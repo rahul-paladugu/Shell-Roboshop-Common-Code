@@ -34,12 +34,12 @@ logs_creation () {
 }
 start_time () {
     start_time=$(date +%s)
-    echo "$yellow Started executing the script at $start_time. $reset"
+    echo -e "$yellow Started executing the script at $start_time. $reset"
 }
 end_time (){
     end_time=$(date +%s)
     total=$(($end_time - $start_time))
-    echo -e "$yellow Catalogue configuration is completed. Time taken in$total Seconds. $reset"
+    echo -e $yellow "Catalogue configuration is completed. Time taken is $total Seconds. $reset"
 
 }
 download_code () {
