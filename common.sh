@@ -11,7 +11,7 @@ current_dir=$PWD
 #Checking if user using root access.
 check_root_access () {
   if [ $user -ne 0 ]; then
-    echo -e "$red Please run the script using root access. $reset"
+    echo -e "${red}Please run the script using root access. $reset"
     exit 1
   fi
 }
