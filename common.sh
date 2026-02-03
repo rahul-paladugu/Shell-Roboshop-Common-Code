@@ -6,7 +6,8 @@ yellow="\e[33m"
 blue="\e[34m"
 reset="\e[0m"
 user=$(id -u)
-current_dir=$PWD
+script_dir=$PWD
+
 
 #Checking if user using root access.
 check_root_access () {
@@ -18,7 +19,7 @@ check_root_access () {
 #Validating errors for every task.
 error_handler () {
   if [ $? -ne 0 ]; then
-    echo -e "$1 is$red failed.$reset Please review the logs."
+    echo -e "$1 is$red failed... Please review the logs....$reset"
     exit 1
   else
     echo -e "$1 is$green success. $reset"
@@ -49,7 +50,7 @@ echo -e "Downloading and unzipping code..."
 curl -L -o /tmp/$1.zip https://roboshop-artifacts.s3.amazonaws.com/$1-v3.zip &>>$log
 rm -rf /app/*
 cd /app 
-unzip /tmp/$1.zip
+unzip /tmp/$1.zip &>>$log
 cd /app 
 }
 
@@ -58,7 +59,7 @@ system_user (){
     if [ $? -ne 0 ]; then
      useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$log
     else
-     echo -e "$blue User already exists. Skipping...... $reset"
+     echo -e "${blue}User already exists. Skipping...... $reset"
     fi
 }
 
