@@ -46,7 +46,7 @@ download_code () {
 echo -e "Creating App directory..."
 mkdir -p /app 
 echo -e "Downloading and unzipping code..."
-curl -L -o /tmp/$1.zip https://roboshop-artifacts.s3.amazonaws.com/$1-v3.zip
+curl -L -o /tmp/$1.zip https://roboshop-artifacts.s3.amazonaws.com/$1-v3.zip &>>$log
 rm -rf /app/*
 cd /app 
 unzip /tmp/$1.zip

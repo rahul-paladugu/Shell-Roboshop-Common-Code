@@ -16,7 +16,7 @@ dnf install nodejs -y &>>$log
 error_handler Install_nodejs
 system_user
 error_handler System_user_creation
-download_code
+download_code catalogue
 error_handler Downloading_code
 npm install &>>$log
 error_handler Instaiing_dependencies
