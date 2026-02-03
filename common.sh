@@ -34,18 +34,18 @@ logs_creation () {
 }
 start_time () {
     start_time=$(date +%s)
-    echo -e "$yellow Started executing the script at $start_time. $reset"
+    echo -e "${green}Started executing the script at $start_time. $reset"
 }
 end_time (){
     end_time=$(date +%s)
     total=$(($end_time - $start_time))
-    echo -e $yellow "Catalogue configuration is completed. Time taken is $total Seconds. $reset"
+    echo -e "${yellow}$1 configuration is completed. Time taken is $total Seconds. $reset"
 
 }
 download_code () {
-echo -e "$yellow Creating App directory $reset"
+echo -e "Creating App directory..."
 mkdir -p /app 
-echo -e "$yellow Downloading and unzipping code $reset"
+echo -e "Downloading and unzipping code..."
 curl -L -o /tmp/$1.zip https://roboshop-artifacts.s3.amazonaws.com/$1-v3.zip
 rm -rf /app/*
 cd /app 

@@ -22,4 +22,4 @@ sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 error_handler binding_the_ip
 systemctl restart mongod &>>$log
 error_handler restarting_mongod_service
-end_time
+end_time mongodb
