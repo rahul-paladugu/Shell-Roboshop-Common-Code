@@ -33,4 +33,4 @@ sed -i '111s/protected-mode yes/protected-mode no/' /etc/redis/redis.conf
 error_handler Disabling_protected_mode
 start_enable_service redis
 error_handler start_and_enable_redis
-end_time
+end_time Redis
