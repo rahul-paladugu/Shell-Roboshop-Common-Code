@@ -22,14 +22,14 @@ npm install &>>$log
 error_handler Instaiing_dependencies
 #Catalogue Service Setup
 echo -e "${blue}Configuring catalogue service.... $reset"
-cp $script_directory/catalogue.service /etc/systemd/system/catalogue.service
+cp $script_dir/catalogue.service /etc/systemd/system/catalogue.service
 error_handler Service_setup
 systemctl daemon-reload &>>$log
 start_enable_service catalogue
 error_handler Enabling_service
 echo -e "${blue}Catalogue service configuration is sucess.... $reset"
 #Configuring the mongodb in catalogue.
-cp $script_directory/mongo.repo /etc/yum.repos.d/mongo.repo &>>$log
+cp $script_dir/mongo.repo /etc/yum.repos.d/mongo.repo &>>$log
 error_handler Mongo_repo
 dnf install mongodb-mongosh -y &>>$log
 error_handler Install_mongosh
