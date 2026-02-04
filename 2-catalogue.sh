@@ -35,4 +35,4 @@ dnf install mongodb-mongosh -y &>>$log
 error_handler Install_mongosh
 mongosh --host mongodb.rscloudservices.icu </app/db/master-data.js &>>$log
 error_handler Load_mongo_schema
-end_time
+end_time Catalogue
