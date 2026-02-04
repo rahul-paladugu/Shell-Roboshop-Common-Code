@@ -16,7 +16,7 @@ dnf install nodejs -y &>>$log
 error_handler Installing_nodejs_20_version
 system_user
 error_handler Creating_system_user
-Downloading_code cart
+download_code cart
 error_handler Downloading_cart_code
 npm install &>>$log
 error_handler Installing_dependencies
