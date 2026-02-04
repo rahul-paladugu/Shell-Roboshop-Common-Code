@@ -26,4 +26,4 @@ systemctl daemon-reload &>>$log
 error_handler Daemon_reload
 start_enable_service user
 error_handler Start_user_service
-end_time
+end_time User
