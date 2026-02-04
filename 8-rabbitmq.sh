@@ -17,7 +17,7 @@ error_handler Start_rabbitmq_service
 #rabbitmqctl add_user roboshop roboshop123 &>>$log
 #if user already exists, then ignore
 if rabbitmqctl list_users | grep -w roboshop &>>$log; then
-  echo "${yellow}RabbitMQ user roboshop already exists. Skipping creation.${reset}"
+  echo -e "${yellow}RabbitMQ user roboshop already exists. Skipping creation.${reset}"
 else
   rabbitmqctl add_user roboshop roboshop123
 fi
