@@ -12,7 +12,7 @@ region="us-east-1"
 instances="mongodb catalogue redis user cart mysql shipping rabbitmq payment dispatch frontend"
 
 #Logs creation
-logs_path="/var/logs/shell-roboshop/"
+logs_path="/var/logs/shell-roboshop"
 sudo mkdir -p $logs_path
 script_name=$(echo "$0" | cut -d "." -f1)
 log="$logs_path/$script_name.log"
