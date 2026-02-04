@@ -10,7 +10,7 @@ logs_creation
 start_time
 rm -rf /etc/yum.repos.d/mongo.repo
 error_handler Remove_existing_repo
-cp $current_dir/mongo.repo /etc/yum.repos.d/mongo.repo
+cp $script_dir/mongo.repo /etc/yum.repos.d/mongo.repo
 error_handler Adding_Repo_File
 dnf install mongodb-org -y &>>$log
 error_handler Mongodb_Installation
