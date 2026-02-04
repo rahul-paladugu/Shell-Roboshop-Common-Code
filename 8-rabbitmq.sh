@@ -14,7 +14,13 @@ dnf install rabbitmq-server -y &>>$log
 error_handler Installing_rabbitmq_server
 start_enable_service rabbitmq-server
 error_handler Start_rabbitmq_service
-rabbitmqctl add_user roboshop roboshop123 &>>$log
+#rabbitmqctl add_user roboshop roboshop123 &>>$log
+#if user already exists, then ignore
+if rabbitmqctl list_users | grep -w roboshop &>>$log; then
+  echo "${yellow}RabbitMQ user roboshop already exists. Skipping creation.${reset}"
+else
+  rabbitmqctl add_user roboshop roboshop123
+fi
 error_handler Adding_db_user
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>$log
 error_handler Setting_permissions_to_db_user
