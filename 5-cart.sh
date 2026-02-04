@@ -21,7 +21,7 @@ error_handler Downloading_cart_code
 npm install &>>$log
 error_handler Installing_dependencies
 #User service Cart
-cp $script_dir/cart.service /etc/systemd/system/user.service
+cp $script_dir/cart.service /etc/systemd/system/cart.service
 systemctl daemon-reload &>>$log
 error_handler Daemon_reload
 start_enable_service cart
