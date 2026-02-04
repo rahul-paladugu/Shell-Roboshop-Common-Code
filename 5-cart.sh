@@ -14,7 +14,7 @@ dnf module enable nodejs:20 -y &>>$log
 error_handler Enabling_nodejs_20
 dnf install nodejs -y &>>$log
 error_handler Installing_nodejs_20_version
-System_user
+system_user
 error_handler Creating_system_user
 Downloading_code cart
 error_handler Downloading_cart_code
