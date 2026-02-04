@@ -11,12 +11,6 @@ region="us-east-1"
 
 instances="mongodb catalogue redis user cart mysql shipping rabbitmq payment dispatch frontend"
 
-#Logs creation
-logs_path="/var/logs/shell-roboshop"
-sudo mkdir -p $logs_path
-script_name=$(echo "$0" | cut -d "." -f1)
-log="$logs_path/$script_name.log"
-
 
 error_validation(){
     if [ $? -ne 0 ]; then
@@ -41,10 +35,10 @@ aws ec2 wait instance-running --region "$region" --instance-ids "$instance_id"
 #selecting IP address based on instance component
  if [ $instance = frontend ]; then
   ip=$(aws ec2 describe-instances --region us-east-1 --filters "Name=instance-id,Values=$instance_id" --query 'Reservations[*].Instances[*].PublicIpAddress' --output text)
-  record_name=$record &>>$log
+  record_name=$record 
  else
   ip=$(aws ec2 describe-instances --region us-east-1 --filters "Name=instance-id,Values=$instance_id" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
-  record_name="$instance.$record" &>>$log
+  record_name="$instance.$record" 
  fi
 echo -e "${yellow}ip for $instance is $ip ${reset}"
 sleep 5
@@ -67,7 +61,7 @@ sleep 5
         }
     ]
 }
-' &>>$log
+'
 error_validation r53_records
 echo -e "${yellow}The r53 record for $instance is $instance.$record${reset}"
 done
