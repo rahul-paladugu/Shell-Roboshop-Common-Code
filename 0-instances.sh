@@ -29,12 +29,12 @@ error_validation(){
 for instance in $instances
 do
  start_time=$(date +%s)
- echo "${yellow}Creating AWS instance $instance as requested${reset}"
+ echo -e "${yellow}Creating AWS instance $instance as requested${reset}"
 #Creating an instance and collecting instance_ID into a variable
  instance_id=$(aws ec2 run-instances --image-id $ami --instance-type t3.micro  --security-group-ids $sg  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output text)
  end_time=$(date +%s)
- echo "${yellow}$instance instance is created successfully${reset}"
- echo "${blue}Time taken to create instance is $(($end_time - $start_time))Seconds.${reset}"
+ echo -e "${yellow}$instance instance is created successfully${reset}"
+ echo -e "${blue}Time taken to create instance is $(($end_time - $start_time))Seconds.${reset}"
 # Wait until instance is running
 aws ec2 wait instance-running --region "$region" --instance-ids "$instance_id"
 #selecting IP address based on instance component
@@ -45,7 +45,7 @@ aws ec2 wait instance-running --region "$region" --instance-ids "$instance_id"
   ip=$(aws ec2 describe-instances --region us-east-1 --filters "Name=instance-id,Values=$instance_id" --query 'Reservations[*].Instances[*].PrivateIpAddress' --output text)
   record_name="$instance.$record" &>>$log
  fi
-echo "${yellow}ip for $instance is $ip ${reset}"
+echo -e "${yellow}ip for $instance is $ip ${reset}"
 sleep 5
 #Creating R53 records for the instance created above
  aws route53 change-resource-record-sets --hosted-zone-id "$zone" --change-batch ' {
@@ -68,6 +68,6 @@ sleep 5
 }
 ' &>>$log
 error_validation r53_records
-echo "${yellow}The r53 record for $instance is $instance.$record${reset}"
+echo -e "${yellow}The r53 record for $instance is $instance.$record${reset}"
 done
 
