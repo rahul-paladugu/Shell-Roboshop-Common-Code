@@ -7,6 +7,7 @@ check_root_access
 #Creating logs directory
 logs_creation
 #Configure Rabbitmq
+start_time
 cp $script_dir/rabbitmq.repo /etc/yum.repos.d/rabbitmq.repo
 error_handler Copying_rabbitmq_repo
 dnf install rabbitmq-server -y &>>$log

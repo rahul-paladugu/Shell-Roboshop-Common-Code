@@ -7,6 +7,7 @@ check_root_access
 #Creating logs directory
 logs_creation
 #Configure Payment
+start_time
 dnf install python3 gcc python3-devel -y &>>$log
 error_handler Installing_python
 system_user
