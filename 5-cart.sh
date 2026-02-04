@@ -6,7 +6,7 @@ source ./common.sh
 check_root_access
 #Creating logs directory
 logs_creation
-#Configure user
+#Configure Cart
 start_time
 dnf module disable nodejs -y &>>$log
 error_handler Disabling_default_nodejs
@@ -16,14 +16,14 @@ dnf install nodejs -y &>>$log
 error_handler Installing_nodejs_20_version
 System_user
 error_handler Creating_system_user
-Downloading_code user
-error_handler Downloading_user_code
+Downloading_code cart
+error_handler Downloading_cart_code
 npm install &>>$log
 error_handler Installing_dependencies
-#User service setup
+#User service Cart
 cp $script_dir/user.service /etc/systemd/system/user.service
 systemctl daemon-reload &>>$log
 error_handler Daemon_reload
-start_enable_service user
-error_handler Start_user_service
+start_enable_service cart
+error_handler Start_cart_service
 end_time
